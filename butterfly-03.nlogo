@@ -48,7 +48,7 @@ to change-background-color
     set pcolor background-color
   ]
   ask patches with [pycor >= 0] [
-    set pcolor (background-color - 10 ) mod 65
+    set pcolor wrap-color (background-color - 70)
   ]
 end
 
@@ -196,8 +196,8 @@ SLIDER
 background-color
 background-color
 0
-65
-53.0
+140
+28.0
 1
 1
 NIL
