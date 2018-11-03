@@ -19,7 +19,8 @@ end
 
 ; ------------------------------------------------------------
 
-; Define the environment of the non-moving agents "patches"
+; Define the environment of the non-moving agents "patches", define
+; a blue background and a white border separing the four quadrants
 to setup-patches
   ask patches [set pcolor blue]
   ask patches with [ pxcor = 0 or pycor = 0 ] [set pcolor white]
@@ -31,7 +32,7 @@ to setup-turtles
   create-turtles 8 [
     set shape "butterfly"   ; assign to all the butterfly shape
     set size turtle-size
-    setxy random-xcor random-ycor   ; place them randomly
+    setxy random-xcor random-ycor   ; place them randomly and color the butterflies according to quadrant
     set color orange
     if (pycor > 0) [ set color color + 10]
     if (pxcor > 0) [ set color color + 20]
@@ -39,12 +40,13 @@ to setup-turtles
 
 end
 
-
 to change-turtle-sizes
   ask turtles [ set size turtle-size]
 end
 
-
+; We change the upper and lower part of the World's colors, the second
+; color should always be 70 different (of a total of 140 colors) from the
+; selected first color
 to change-background-color
   ask patches with [pycor < 0 and pxcor != 0] [
     set pcolor background-color
@@ -60,9 +62,14 @@ end
 ; We want each turtle to stay in its quadrant
 to move-turtle
 
-  let step-size random steps-forward
+  let step-size random-float steps-forward
   right random 360
-  if ( ([pxcor] of patch-ahead step-size )  * xcor > 0 and ([pycor] of patch-ahead step-size )  * ycor > 0 ) [forward step-size]
+  let target-patch patch-ahead step-size
+  if target-patch != nobody [
+    if (  ([pxcor] of target-patch )  * xcor > 0 ; same left-right of butterfly and target patch
+      and ([pycor] of target-patch )  * ycor > 0 ; same top-down of butterfly and target patch
+    ) [forward step-size]
+  ]
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
@@ -79,8 +86,8 @@ GRAPHICS-WINDOW
 1
 1
 0
-1
-1
+0
+0
 1
 -16
 16
@@ -134,9 +141,9 @@ SLIDER
 steps-forward
 steps-forward
 0
-16
-4.5
+4
 0.1
+0.05
 1
 NIL
 HORIZONTAL
@@ -170,7 +177,7 @@ turtle-size
 turtle-size
 1
 10
-2.8
+5.0
 0.2
 1
 NIL
@@ -202,7 +209,7 @@ background-color
 background-color
 0
 140
-44.0
+109.0
 1
 1
 NIL
