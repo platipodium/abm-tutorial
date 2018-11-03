@@ -7,4 +7,5 @@ Ecosystem Modeling course 2018/2019 at Leuphana University Lüneburg
 # License and Copyright
 
 All codes provided here are provided for free under a Create-Commons Zero
-CC-0 license by Carsten Lemmen and Eckhard Bollow
+CC-0 license by Carsten Lemmen, Eckhard Bollow, and contributors from the
+Ecosystem Modeling course
