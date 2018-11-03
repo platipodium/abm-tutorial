@@ -1,6 +1,6 @@
 ; Our second program
 ; let a butterfly move
-; @date 2.11.2018
+; @date 3.11.2018
 ; @authors Eckhard Bollow, Marlene Rimmert, Carsten Lemmen
 ; @license CC-0
 
