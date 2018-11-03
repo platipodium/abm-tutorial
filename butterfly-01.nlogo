@@ -14,7 +14,7 @@ to setup
     set shape "butterfly"   ; assign to all the butterfly shape
     set color orange        ; make them orange and size 3
     set size 3
-    setxy random xcor random ycor   ; place them randomly
+    setxy random-xcor random-ycor   ; place them randomly
   ]
 end
 

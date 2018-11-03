@@ -33,7 +33,7 @@ to setup-turtles
     set shape "butterfly"   ; assign to all the butterfly shape
     set color orange        ; make them orange and size 3
     set size turtle-size
-    setxy random xcor random ycor   ; place them randomly
+    setxy random-xcor random-ycor   ; place them randomly
   ]
 end
 
@@ -197,7 +197,7 @@ background-color
 background-color
 0
 140
-28.0
+65.0
 1
 1
 NIL
